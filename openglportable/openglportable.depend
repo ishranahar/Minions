@@ -51,3 +51,21 @@
 	<GL/glu.h>
 	<stdlib.h>
 
+1768836927 source:d:\aiub\fall 25-26\computer graphics\minions\openglportable-64bit\openglportable-64bit\openglportable-64bit\openglportable\main.cpp
+	<GL/glut.h>
+	<cmath>
+
+1766178376 d:\aiub\fall 25-26\computer graphics\minions\openglportable-64bit\openglportable-64bit\openglportable-64bit\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1766178376 d:\aiub\fall 25-26\computer graphics\minions\openglportable-64bit\openglportable-64bit\openglportable-64bit\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
