@@ -1,143 +1,151 @@
 #include <GL/glut.h>
-#include <cmath>
+#include<math.h>
 
-// ---------------- HELPER ----------------
-void FilledCircle(float cx, float cy, float r, int n) {
-    glBegin(GL_TRIANGLE_FAN);
-    for(int i=0;i<=n;i++){
-        float a = 2*3.1416f*i/n;
-        glVertex2f(cx + r*cos(a), cy + r*sin(a));
-    }
-    glEnd();
+void display()
+{
+  glClear(GL_COLOR_BUFFER_BIT);
+
+float r=0.5;
+ int segments = 100;
+glBegin(GL_POLYGON);
+        glColor3f(1, 1, 0);
+for(int i = 0 ;i <= segments; i++){
+    float a = 2 * M_PI * (float) i / segments;
+    float x = r * cos(a);
+    float y = r * sin(a);
+    glVertex2f(x  ,y  );
+
 }
-
-void windowBack(){
-    glBegin(GL_QUADS);
-    glVertex2f(-1.72,-0.38);
-    glVertex2f(-1.72,-0.43);
-    glVertex2f(-1.60,-0.43);
-    glVertex2f(-1.60,-0.38);
-    glEnd();
-}
-
-void window(){
-    glColor3f(0,0,0);
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(-1.72,-0.38);
-    glVertex2f(-1.72,-0.43);
-    glVertex2f(-1.60,-0.43);
-    glVertex2f(-1.60,-0.38);
-    glEnd();
-}
-
-void Origin(){ glLoadIdentity(); }
-
-// ---------------- SAME BUILDING ----------------
-void demoBuilding(){
+glEnd();
     glBegin(GL_POLYGON);
-        glVertex2f(-1.79,0.3);
-        glVertex2f(-1.79,-0.62);
-        glVertex2f(-1.4,-0.62);
-        glVertex2f(-1.4,0.3);
-        glVertex2f(-1.595,0.35);
+      glColor3f(1, 1, 0);
+
+        glVertex2f(-0.5, 0.0);
+
+        glVertex2f(0.5, 0.0);
+
+        glVertex2f(0.5, -0.8);
+        glVertex2f(-0.5, -0.8);
     glEnd();
 
-    glBegin(GL_POLYGON);
-        glVertex2f(-1.595,0.35);
-        glVertex2f(-1.39,0.29);
-        glVertex2f(-1.39,0.3);
-        glVertex2f(-1.595,0.36);
-        glVertex2f(-1.80,0.3);
-        glVertex2f(-1.80,0.29);
-    glEnd();
-
-    FilledCircle(-1.595,0.3,0.03,100);
-
-    for(int i=0;i<5;i++){
-        for(int j=0;j<2;j++){
-            glBegin(GL_QUADS);
-            glVertex2f(-1.72,-.43);
-            glVertex2f(-1.72,-.44);
-            glVertex2f(-1.60,-.44);
-            glVertex2f(-1.60,-.43);
-            glEnd();
-            windowBack();
-            window();
-            glTranslatef(.17,0,0);
-        }
-        glTranslatef(-.34,.15,0);
-    }
-    Origin();
+float t =-0.15;
+ int segment = 100;
+glBegin(GL_POLYGON);
+        glColor3f(0, 0, 0);
+for(int i = 0 ;i <= segment; i++){
+    float a = M_PI * (float) i / segment;
+    float x = t * cos(a);
+    float y = t * sin(a);
+    glVertex2f(x  ,y - 0.3  );
 }
+glEnd();
 
-// ---------------- MULTIPLE BUILDINGS ----------------
-void drawBuildings(){
 
-    // 1️⃣ Short - Magenta
-    glPushMatrix();
-    glTranslatef(0,0,0);
-    glScalef(1.0f,0.6f,1.0f);
-    glColor3f(1,0,1);
-    demoBuilding();
-    glPopMatrix();
+//silver right eye
 
-    // 2️⃣ Medium - Cyan
-    glPushMatrix();
-    glTranslatef(2.2f,0,0);
-    glScalef(1.0f,0.9f,1.0f);
-    glColor3f(0,1,1);
-    demoBuilding();
-    glPopMatrix();
+float k =0.12;
+ int st = 100;
+glBegin(GL_POLYGON);
+        glColor3f(0.75f, 0.75f, 0.75f);
 
-    // 3️⃣ Tall - Orange
-    glPushMatrix();
-    glTranslatef(4.4f,0,0);
-    glScalef(1.0f,1.3f,1.0f);
-    glColor3f(1,0.5f,0);
-    demoBuilding();
-    glPopMatrix();
 
-    // 4️⃣ Very Tall - Green
-    glPushMatrix();
-    glTranslatef(6.6f,0,0);
-    glScalef(1.0f,1.6f,1.0f);
-    glColor3f(0,0.8f,0.3f);
-    demoBuilding();
-    glPopMatrix();
 
-    // 5️⃣ Medium Short - Blue
-    glPushMatrix();
-    glTranslatef(8.8f,0,0);
-    glScalef(1.0f,0.8f,1.0f);
-    glColor3f(0.2f,0.4f,1.0f);
-    demoBuilding();
-    glPopMatrix();
+for(int i = 0 ;i <= st; i++){
+    float a = 2 * M_PI * (float) i / st;
+    float x = k * cos(a);
+    float y = k * sin(a);
+    glVertex2f(x +0.12  ,y+0.01 );
+
 }
+glEnd();
 
-// ---------------- DISPLAY ----------------
-void display(){
-    glClear(GL_COLOR_BUFFER_BIT);
-    drawBuildings();
-    glutSwapBuffers();
+float m =0.1;
+ int segm = 100;
+glBegin(GL_POLYGON);
+        glColor3f(1, 1, 1);
+
+
+for(int i = 0 ;i <= segm; i++){
+    float a = 2 * M_PI * (float) i / segm;
+    float x = m * cos(a);
+    float y = m * sin(a);
+    glVertex2f(x +0.12  ,y+0.01 );
+
 }
+glEnd();
+//black right eye
+float s =0.05;
+ int segmen = 100;
+glBegin(GL_POLYGON);
+        glColor3f(0, 0, 0);
 
-// ---------------- INIT ----------------
-void init(){
-    glClearColor(0.75f,0.9f,1.0f,1);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluOrtho2D(-2,11,-1,2);
+
+for(int i = 0 ;i <= segmen; i++){
+    float a = 2 * M_PI * (float) i / segmen;
+    float x = s * cos(a);
+    float y = s * sin(a);
+    glVertex2f(x +0.12 ,y +0.01  );
+
 }
+glEnd();
+//silver left eye
 
-// ---------------- MAIN ----------------
-int main(int argc,char** argv){
-    glutInit(&argc,argv);
-    glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
-    glutInitWindowSize(1200,500);
-    glutCreateWindow("Flappy Bird Height-Based Buildings");
-    init();
+float mn =-0.12;
+ int str = 100;
+glBegin(GL_POLYGON);
+        glColor3f(0.75f, 0.75f, 0.75f);
+
+
+
+for(int i = 0 ;i <= str; i++){
+    float a = 2 * M_PI * (float) i / str;
+    float x = mn * cos(a);
+    float y = mn * sin(a);
+    glVertex2f(x -0.12  ,y+0.01 );
+
+}
+glEnd();
+//white left eye
+
+float c =-0.1;
+ int seg = 100;
+glBegin(GL_POLYGON);
+        glColor3f(1, 1, 1);
+
+
+for(int i = 0 ;i <= seg; i++){
+    float a = 2 * M_PI * (float) i / seg;
+    float x = c * cos(a);
+    float y = c * sin(a);
+    glVertex2f(x -0.12  ,y + 0.01);
+
+}
+glEnd();
+
+float d =-0.05;
+ int se = 100;
+glBegin(GL_POLYGON);
+        glColor3f(0, 0, 0);
+
+
+for(int i = 0 ;i <= se; i++){
+    float a = 2 * M_PI * (float) i / se;
+    float x = d * cos(a);
+    float y = d * sin(a);
+    glVertex2f(x -0.12  ,y + 0.01);
+
+}
+glEnd();
+
+    glFlush();
+}
+int main(int argc, char** argv)
+{
+    glutInit(&argc, argv);
+    glutInitWindowSize(560, 480);
+    glutCreateWindow("OpenGL 64 bit");
     glutDisplayFunc(display);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glutMainLoop();
     return 0;
 }
-
